@@ -1,7 +1,7 @@
 FROM node:10-alpine as builder
 MAINTAINER StephenEvenson stephen.zrt@qq.com
 
-COPY https://github.com/StephenEvenson/emotion_analyse-Vue/archive/master.zip /code/
+ADD https://github.com/StephenEvenson/emotion_analyse-Vue/archive/master.zip /code/
 WORKDIR /code/emotion_analyse-Vue-master
 RUN unzip /code/master.zip -d /code/ && npm install && npm run build
 
