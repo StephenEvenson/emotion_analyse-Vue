@@ -9,10 +9,9 @@ RUN unzip /code/master.zip -d /code/ && npm install && npm run build
 FROM nginx:alpine as prod
 MAINTAINER StephenEvenson stephen.zrt@qq.com
 
-COPY /code/emotion_analyse-Vue-master/dist/ /etc/nginx/html/
 RUN copy -r /code/emotion_analyse-Vue-master/dist/ /etc/nginx/html/ \
     && rm -rf /etc/nginx/nginx.conf \
-    && /code/emotion_analyse-Vue-master/nginx.conf /etc/nginx/nginx.conf
+    && copy /code/emotion_analyse-Vue-master/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 8082
 
 CMD ["nginx" "-g" "daemon off;"]
