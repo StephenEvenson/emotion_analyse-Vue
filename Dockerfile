@@ -12,3 +12,6 @@ MAINTAINER StephenEvenson stephen.zrt@qq.com
 COPY /code/dist/ /etc/nginx/html/
 RUN rm -rf /etc/nginx/nginx.conf
 COPY /code/nginx.conf /etc/nginx/nginx.conf
+EXPOSE 8082
+
+CMD ["nginx" "-g" "daemon off;"]
